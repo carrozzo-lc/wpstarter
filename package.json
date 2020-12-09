@@ -1,0 +1,37 @@
+{
+  "name": "wordpress-starter",
+  "version": "1.0.0",
+  "description": "A wordpress project",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://USER_NAME@gitlab.com/FOLDER_NAME/NAME_PROJECT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/USER_NAME/NAME_PROJECT.git/issues"
+  },
+  "homepage": "https://gitlab.com/USER_NAME/NAME_PROJECT#README",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "es6-promise": "^4.2.5",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.7"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "node-sass": "^4.14.1"
+  }
+}
