@@ -70,9 +70,9 @@ function your_child_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'your_child_enqueue_scripts', 20 );
 ```
 
-```
 If you use a standard/parent theme.
 
+```
 function your_theme_scripts() {
     wp_enqueue_style( 'your_theme-main-style', get_template_directory_uri(). '/css/main.css' );
     wp_enqueue_script('your_theme-script', get_template_directory_uri(). '/js/app.min.js', array('jquery'), false, true);    
@@ -92,7 +92,7 @@ In the root folder open the gulpfile.js and change all theme paths from:
 with your theme folder name.
 
 After that, open a terminal and `cd` to the root folder:
-- run `npm install`;
+- run `npm install`
 - then run `gulp`
 
 After Gulp is running add ":3000" after the local url like http://dev.yoursite.localhost:3000 it's for Browsersync to correctly refresh the page after any changes in you gulp watched files.
