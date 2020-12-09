@@ -59,6 +59,7 @@ docker-compose down -v
 ####  WordPress configuration
 ------------
 If you use a child theme add the following line to the functions.php file to connect css and js files.
+
 ```
 function your_child_enqueue_scripts() {
 	wp_enqueue_style( 'your-child-style', get_stylesheet_uri() );
@@ -68,6 +69,7 @@ function your_child_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'your_child_enqueue_scripts', 20 );
 ```
+
 ```
 If you use a standard/parent theme.
 
@@ -95,4 +97,4 @@ After that, open a terminal and `cd` to the root folder:
 
 After Gulp is running add ":3000" after the local url like http://dev.yoursite.localhost:3000 it's for Browsersync to correctly refresh the page after any changes in you gulp watched files.
 
-####  Done! Now you can work and develop on you local WorPress Site.
+####  Done! Now you can work and develop on your local WorPress Site.
