@@ -1,1 +1,1 @@
-console.log('theme.js')
+document.documentElement.classList.add('js-ready');

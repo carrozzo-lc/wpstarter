@@ -1,0 +1,51 @@
+.site-branding {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.site-nav__menu {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__menu a {
+  color: #fff;
+}
+
+.hero,
+.entry-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  padding: 2rem;
+}
+
+.hero {
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #fff7ed, #ffffff);
+}
+
+.hero__eyebrow {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #b45309;
+}
+
+.hero__title,
+.entry-title {
+  margin: 0 0 1rem;
+}
+
+.entry-content > :first-child {
+  margin-top: 0;
+}
+
+.entry-content > :last-child {
+  margin-bottom: 0;
+}

@@ -1,6 +1,6 @@
 # ignore everything in the webroot except the "wp-content" directory.
 webroot/*
-!wp-content/
+!webroot/wp-content/
 
 # ignore packaged files
 *.7z
@@ -17,12 +17,29 @@ webroot/*
 # "plugins" directory
 # "themes" directory
 webroot/wp-content/*
-!mu-plugins/
-!plugins/
-!themes/
-!languages/
-!upgrade/
-!uploads/
+!webroot/wp-content/mu-plugins/
+!webroot/wp-content/plugins/
+!webroot/wp-content/themes/
+!webroot/wp-content/languages/
+!webroot/wp-content/upgrade/
+!webroot/wp-content/uploads/
+!webroot/.gitkeep
+!webroot/wp-content/mu-plugins/.gitkeep
+!webroot/wp-content/plugins/.gitkeep
+!webroot/wp-content/themes/.gitkeep
+!webroot/wp-content/languages/.gitkeep
+!webroot/wp-content/upgrade/.gitkeep
+!webroot/wp-content/uploads/.gitkeep
+
+# ignore generated theme assets
+webroot/wp-content/themes/*/assets/
+
+# ignore local Docker data/imports
+docker-wps/wp-data/*
+!docker-wps/wp-data/.gitkeep
+
+# ignore local environment file
+docker-wps/.env
 
 # ignore node dependency directories
 node_modules/

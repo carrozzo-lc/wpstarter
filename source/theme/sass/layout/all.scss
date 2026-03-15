@@ -1,0 +1,27 @@
+.container {
+  width: min(100% - 2rem, 960px);
+  margin: 0 auto;
+}
+
+.site-header,
+.site-footer {
+  background: #0f172a;
+  color: #fff;
+}
+
+.site-header {
+  border-bottom: 4px solid #f59e0b;
+}
+
+.site-header__inner,
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.site-main {
+  padding: 2rem 0 4rem;
+}
