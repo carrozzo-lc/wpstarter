@@ -1,40 +1,40 @@
 # WordPress Local Modern Starter
 
-Starter per creare in pochi minuti un ambiente WordPress locale moderno con:
+Starter to create a modern local WordPress environment in a few minutes with:
 
 - Docker Compose
-- installazione automatica via WP-CLI
-- tema starter gia' pronto
-- frontend con Vite + Sass
+- automatic installation via WP-CLI
+- a ready-to-use starter theme
+- frontend tooling with Vite + Sass
 
-## A Cosa Serve
+## What It Is For
 
-Questo progetto serve a:
+This project is meant to:
 
-- avviare velocemente WordPress in locale
-- avere una base moderna per sviluppo tema custom
-- evitare setup manuale da browser
-- usare HMR in sviluppo e build versionata in produzione
+- start WordPress locally very quickly
+- provide a modern base for custom theme development
+- avoid manual browser-based setup
+- use HMR in development and versioned builds in production
 
-## Requisiti
+## Requirements
 
-- Docker Desktop oppure Docker Engine con Compose v2
-- Node.js recente
+- Docker Desktop or Docker Engine with Compose v2
+- a recent Node.js version
 - npm
 
-## Avvio Rapido
+## Quick Start
 
-Apri un terminale nella root del progetto:
+Open a terminal in the project root:
 
 ```bash
-cd /Users/luca/Develop/2026/wpstarter-master
+cd /path/to/project
 ```
 
-### 1. Configura WordPress
+### 1. Configure WordPress
 
-Duplica [docker-wps/.env.example](/Users/luca/Develop/2026/wpstarter-master/docker-wps/.env.example#L1) in `docker-wps/.env`, poi modifica i valori che ti servono.
+Copy [docker-wps/.env.example](docker-wps/.env.example) to `docker-wps/.env`, then update the values you need.
 
-Valori di default:
+Default values:
 
 ```env
 WP_PORT=8081
@@ -48,73 +48,73 @@ WP_ADMIN_EMAIL=admin@example.test
 WP_ACTIVE_THEME=your-theme
 ```
 
-### 2. Avvia e installa il sito
+### 2. Start and install the site
 
-Esegui questi comandi dalla root del progetto:
+Run these commands from the project root:
 
 ```bash
 cd docker-wps
 ./bootstrap.sh
 ```
 
-Oppure usa un solo comando, sempre dalla root:
+Or use a single command, still from the project root:
 
 ```bash
 ./docker-wps/bootstrap.sh
 ```
 
-Lo script:
+The script:
 
-- avvia i container
-- aspetta database e WordPress
-- installa WordPress se non e' gia' installato
-- attiva il tema `your-theme`
-- stampa gli URL finali del sito e dell'admin
-- stampa username e password admin configurati nel file `.env`
-- verifica anche `siteurl` e tema attivo via WP-CLI
+- starts the containers
+- waits for the database and WordPress
+- installs WordPress if it is not already installed
+- activates the `your-theme` theme
+- prints the final site and admin URLs
+- prints the admin username and password configured in `.env`
+- also verifies `siteurl` and the active theme via WP-CLI
 
-### 3. Installa le dipendenze frontend
+### 3. Install frontend dependencies
 
-Torna nella root del progetto, poi esegui:
+Go back to the project root, then run:
 
 ```bash
 npm install
 ```
 
-### 4. Avvia Vite in sviluppo
+### 4. Start Vite in development
 
-Sempre dalla root del progetto:
+Still from the project root:
 
 ```bash
 npm run dev
 ```
 
-Lascia questo comando aperto mentre lavori agli asset frontend.
+Keep this command running while working on frontend assets.
 
-### 5. Build produzione
+### 5. Production build
 
-Sempre dalla root del progetto:
+Still from the project root:
 
 ```bash
 npm run build
 ```
 
-## URL Utili
+## Useful URLs
 
-- sito: `http://127.0.0.1:8081`
+- site: `http://127.0.0.1:8081`
 - admin: `http://127.0.0.1:8081/wp-admin`
 - phpMyAdmin: `http://127.0.0.1:8080`
 
-## Credenziali Di Default
+## Default Credentials
 
 - username: `admin`
 - password: `admin123!`
 
-Cambiale in [docker-wps/.env](/Users/luca/Develop/2026/wpstarter-master/docker-wps/.env#L1) se vuoi usare altri valori.
+Change them in [docker-wps/.env](docker-wps/.env) if you want different values.
 
 ## Frontend
 
-Configurazione Vite in [starter.config.json](/Users/luca/Develop/2026/wpstarter-master/starter.config.json#L1):
+Vite configuration in [starter.config.json](starter.config.json):
 
 ```json
 {
@@ -128,150 +128,150 @@ Configurazione Vite in [starter.config.json](/Users/luca/Develop/2026/wpstarter-
 }
 ```
 
-### Cosa Fa Vite
+### What Vite Does
 
-Vite in questo progetto non serve il sito WordPress completo.
+In this project, Vite does not serve the full WordPress site.
 
-Serve solo gli asset frontend del tema:
+It only serves the theme frontend assets:
 
 - JS
 - CSS
-- HMR / aggiornamento live durante lo sviluppo
+- HMR / live updates during development
 
-Quindi:
+So:
 
-- il sito WordPress si apre su `http://127.0.0.1:8081`
-- Vite gira su `http://127.0.0.1:5173`
-- `5173` non e' il sito: e' solo il server degli asset
+- the WordPress site runs at `http://127.0.0.1:8081`
+- Vite runs at `http://127.0.0.1:5173`
+- `5173` is not the site, it is only the asset server
 
-WordPress usa Vite in sviluppo e gli asset buildati in produzione:
+WordPress uses Vite in development and built assets in production:
 
-- se `npm run dev` e' attivo, WordPress carica JS e CSS dal server Vite
-- se `npm run dev` non e' attivo, WordPress usa i file buildati dentro `assets`
+- if `npm run dev` is running, WordPress loads JS and CSS from the Vite server
+- if `npm run dev` is not running, WordPress uses the built files inside `assets`
 
-Entry frontend:
+Frontend entry:
 
-- [source/theme/main.js](/Users/luca/Develop/2026/wpstarter-master/source/theme/main.js#L1)
+- [source/theme/main.js](source/theme/main.js)
 
-Sorgenti:
+Sources:
 
-- [source/theme/js](/Users/luca/Develop/2026/wpstarter-master/source/theme/js)
-- [source/theme/sass](/Users/luca/Develop/2026/wpstarter-master/source/theme/sass)
+- [source/theme/js](source/theme/js)
+- [source/theme/sass](source/theme/sass)
 
-Output build:
+Build output:
 
-- [assets](/Users/luca/Develop/2026/wpstarter-master/webroot/wp-content/themes/your-theme/assets)
+- [assets](webroot/wp-content/themes/your-theme/assets)
 
-Quando `npm run dev` e' attivo:
+When `npm run dev` is running:
 
-- Vite ascolta sul tuo Mac su `127.0.0.1:5173`
-- WordPress continua a stare su `127.0.0.1:8081`
-- il tema carica `@vite/client` e l'entry frontend da Vite
+- Vite listens on your Mac at `127.0.0.1:5173`
+- WordPress keeps running at `127.0.0.1:8081`
+- the theme loads `@vite/client` and the frontend entry from Vite
 
-Quando Vite non e' attivo:
+When Vite is not running:
 
-- WordPress usa il manifest buildato dentro `assets/.vite/manifest.json`
-- carica i file statici generati con `npm run build`
+- WordPress uses the built manifest inside `assets/.vite/manifest.json`
+- it loads the static files generated by `npm run build`
 
-Nota:
+Note:
 
-- apri sempre il sito WordPress su `http://127.0.0.1:8081`
-- Vite gira su `http://127.0.0.1:5173` solo per servire gli asset
-- non devi vedere il sito completo su `5173`
+- always open the WordPress site at `http://127.0.0.1:8081`
+- Vite runs at `http://127.0.0.1:5173` only to serve assets
+- you should not expect to see the full site on `5173`
 
-### Come Verificare Che Vite Funzioni
+### How To Verify That Vite Works
 
-1. avvia WordPress con `./docker-wps/bootstrap.sh`
-2. avvia Vite con `npm run dev`
-3. apri `http://127.0.0.1:8081`
-4. modifica un file in `source/theme/sass` oppure `source/theme/js`
-5. verifica che il browser si aggiorni e che la modifica si veda nel sito
+1. start WordPress with `./docker-wps/bootstrap.sh`
+2. start Vite with `npm run dev`
+3. open `http://127.0.0.1:8081`
+4. edit a file in `source/theme/sass` or `source/theme/js`
+5. verify that the browser updates and the change appears on the site
 
-Esempio utile:
+Useful example:
 
-- modifica [all.scss](/Users/luca/Develop/2026/wpstarter-master/source/theme/sass/base/all.scss#L1)
-- salva
-- ricarica il sito su `8081`
-- se la modifica appare subito, Vite e' collegato correttamente
+- edit [all.scss](source/theme/sass/base/all.scss)
+- save
+- reload the site on `8081`
+- if the change appears immediately, Vite is connected correctly
 
-## Tema Starter
+## Starter Theme
 
-Il tema si trova in [your-theme](/Users/luca/Develop/2026/wpstarter-master/webroot/wp-content/themes/your-theme).
+The theme is located in [your-theme](webroot/wp-content/themes/your-theme).
 
-File principali:
+Main files:
 
-- [style.css](/Users/luca/Develop/2026/wpstarter-master/webroot/wp-content/themes/your-theme/style.css)
-- [functions.php](/Users/luca/Develop/2026/wpstarter-master/webroot/wp-content/themes/your-theme/functions.php)
-- [theme.json](/Users/luca/Develop/2026/wpstarter-master/webroot/wp-content/themes/your-theme/theme.json)
-- [front-page.php](/Users/luca/Develop/2026/wpstarter-master/webroot/wp-content/themes/your-theme/front-page.php)
-- [page.php](/Users/luca/Develop/2026/wpstarter-master/webroot/wp-content/themes/your-theme/page.php)
-- [single.php](/Users/luca/Develop/2026/wpstarter-master/webroot/wp-content/themes/your-theme/single.php)
+- [style.css](webroot/wp-content/themes/your-theme/style.css)
+- [functions.php](webroot/wp-content/themes/your-theme/functions.php)
+- [theme.json](webroot/wp-content/themes/your-theme/theme.json)
+- [front-page.php](webroot/wp-content/themes/your-theme/front-page.php)
+- [page.php](webroot/wp-content/themes/your-theme/page.php)
+- [single.php](webroot/wp-content/themes/your-theme/single.php)
 
-## Reset Completo
+## Full Reset
 
-`reset.sh` fa questo:
+`reset.sh` does this:
 
-- ferma lo stack `docker-wps`
-- rimuove i container del progetto
-- rimuove la rete del progetto
-- rimuove il volume database `docker-wps_db_data`
+- stops the `docker-wps` stack
+- removes the project containers
+- removes the project network
+- removes the `docker-wps_db_data` database volume
 
-`reset.sh` non fa questo:
+`reset.sh` does not do this:
 
-- non rimuove altri progetti Docker
-- non rimuove tutte le immagini Docker del computer
-- non cancella i file del repository
-- non cancella `node_modules`
+- it does not remove other Docker projects
+- it does not remove all Docker images on your machine
+- it does not delete repository files
+- it does not delete `node_modules`
 
-Per eseguire il reset completo del solo progetto `docker-wps`:
+To run a full reset only for the `docker-wps` project:
 
 ```bash
 cd docker-wps
 ./reset.sh
 ```
 
-Oppure dalla root:
+Or from the root:
 
 ```bash
 ./docker-wps/reset.sh
 ```
 
-## Reset Hard
+## Hard Reset
 
-Se vuoi davvero ripartire da zero anche lato filesystem, usa `reset-hard.sh`.
+If you really want to start from zero on the filesystem too, use `reset-hard.sh`.
 
-`reset-hard.sh` fa questo:
+`reset-hard.sh` does this:
 
-- fa tutto quello che fa `reset.sh`
-- pulisce i file WordPress generati dentro `webroot`
-- rimuove core WordPress, `wp-admin`, `wp-includes` e file runtime
-- svuota `uploads`, `plugins`, `mu-plugins`, `languages` e `upgrade`
+- everything that `reset.sh` does
+- cleans generated WordPress files inside `webroot`
+- removes the WordPress core, `wp-admin`, `wp-includes`, and runtime files
+- empties `uploads`, `plugins`, `mu-plugins`, `languages`, and `upgrade`
 
-`reset-hard.sh` preserva:
+`reset-hard.sh` preserves:
 
-- la struttura minima versionata di `webroot/wp-content`
-- il tema starter `webroot/wp-content/themes/your-theme`
+- the minimal versioned structure of `webroot/wp-content`
+- the starter theme in `webroot/wp-content/themes/your-theme`
 
-Uso:
+Usage:
 
 ```bash
 cd docker-wps
 ./reset-hard.sh
 ```
 
-Oppure dalla root:
+Or from the root:
 
 ```bash
 ./docker-wps/reset-hard.sh
 ```
 
-Dopo un hard reset puoi ripartire con:
+After a hard reset, you can start again with:
 
 ```bash
 ./docker-wps/bootstrap.sh
 ```
 
-## Struttura Repo
+## Repo Structure
 
 ```text
 .
@@ -283,31 +283,31 @@ Dopo un hard reset puoi ripartire con:
 └── package.json
 ```
 
-## Troubleshooting Rapido
+## Quick Troubleshooting
 
-Se il sito non parte:
+If the site does not start:
 
-- controlla che Docker sia attivo
-- rilancia `./bootstrap.sh`
-- verifica che la porta `8081` o `8080` non siano occupate
-- controlla i container con `docker compose ps` dentro `docker-wps`
+- check that Docker is running
+- run `./bootstrap.sh` again
+- verify that port `8081` or `8080` is not already in use
+- inspect containers with `docker compose ps` inside `docker-wps`
 
-Se gli asset non si aggiornano:
+If assets do not update:
 
-- controlla che `npm run dev` sia attivo
-- verifica host e porta in [starter.config.json](/Users/luca/Develop/2026/wpstarter-master/starter.config.json#L1)
-- fai una build con `npm run build`
+- check that `npm run dev` is running
+- verify host and port in [starter.config.json](starter.config.json)
+- run a build with `npm run build`
 
-## Setup In 30 Secondi
+## 30-Second Setup
 
-Se vuoi vedere il progetto partire senza leggere tutto:
+If you want to see the project running without reading everything:
 
-1. apri il terminale nella root del progetto
-2. esegui `./docker-wps/bootstrap.sh`
-3. esegui `npm install`
-4. esegui `npm run dev`
-5. apri `http://127.0.0.1:8081`
+1. open a terminal in the project root
+2. run `./docker-wps/bootstrap.sh`
+3. run `npm install`
+4. run `npm run dev`
+5. open `http://127.0.0.1:8081`
 
-## Note
+## Notes
 
-Questo progetto e' pensato per sviluppo locale rapido. Non e' uno stack di deploy produzione.
+This project is intended for fast local development. It is not a production deployment stack.
